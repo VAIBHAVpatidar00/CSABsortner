@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "CSAB Rank Sorter",
+  "version": "1.0",
+  "description": "Sorts the CSAB seat allotment table based on closing rank.",
+  "permissions": [
+    "tabs",
+    "activeTab",
+    "scripting"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://admissions.nic.in/csabspl/Applicant/seatallotmentresult/currentorcr.aspx*"
+      ],
+      "js": ["content.js"],
+      "css": ["styles.css"]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["styles.css"],
+      "matches": ["https://admissions.nic.in/*"]
+    }
+  ]
+}
